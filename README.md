@@ -60,5 +60,8 @@ This project implements a full Fake Headline Rewriter Pipeline that analyzes new
 ### INSTALLATION
 ```
 pip install -r requirements.txt
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip
+
 
 ```
