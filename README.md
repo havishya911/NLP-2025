@@ -1,3 +1,7 @@
+### FakeHeadline Rewriter — Complete 5-Stage Text Analysis & Headline Generation Pipeline
+This project implements a full Fake Headline Rewriter Pipeline that analyzes news text, detects fake/sensational elements, performs fact verification, and generates clean, credible, rewritten headlines with detailed annotations.
+
+
 ##  Pipeline Stages
 
 ### **1. Preprocessing**
@@ -52,4 +56,10 @@
 └──  outputs/                      # Generated results
     ├── complete_5stage_analysis.csv
     └── complete_5stage_analysis_readable.csv
+```
+
+### INSTALLATION
+```
+pip install -r requirements.txt
+
 ```
