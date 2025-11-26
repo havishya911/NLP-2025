@@ -1,67 +1,30 @@
-### FakeHeadline Rewriter — Complete 5-Stage Text Analysis & Headline Generation Pipeline
-This project implements a full Fake Headline Rewriter Pipeline that analyzes news text, detects fake/sensational elements, performs fact verification, and generates clean, credible, rewritten headlines with detailed annotations.
+# Complete 5-Stage Text Analysis & Headline Generation Pipeline
 
+**Overview**
+This repository implements a 5-stage pipeline that preprocesses text, detects sensational/fake/bias signals, performs fact verification, rewrites headlines, and outputs annotated headlines with confidence scores and sources. The pipeline now includes a **DistilBERT** transformer classifier fine-tuned on your dataset (optional) for improved fake-news detection.
 
-##  Pipeline Stages
+---
 
-### **1. Preprocessing**
-- Removes unnecessary noise  
-- URLs, Emails, HTML tags  
-- Punctuation & Stopwords  
-- Converts text to lowercase  
-- Calculates word reduction %  
+## Key features
+- Stage 1: Preprocessing (cleaning, stopword removal)
+- Stage 2: Fake/Bias detection (heuristic + optional DistilBERT classifier)
+- Stage 3: Fact verification (regex entity extraction, knowledge-base check, source credibility)
+- Stage 4: Headline rewriting (template-based NLG + ranking)
+- Stage 5: Output generation (annotations, warnings, quality tiers)
+- Works without `scikit-learn` / `scipy` (Windows-friendly)
+- Supports fine-tuning DistilBERT on labelled datasets
 
-### **2. Fake/Bias Detection**
-- Sensationalism scoring  
-- Fake-indicator & Credibility-indicator words  
-- Caps-lock intensity  
-- Excessive punctuation detection  
-- Fake probability score  
+---
 
-### **3. Fact Verification**
-- Entity extraction (names, dates, numbers, URLs)  
-- Claim identification  
-- Knowledge-base matching  
-- Source credibility detection  
-- Verifiability scoring  
+## Requirements
+Install dependencies in a *virtual environment* (recommended):
 
-### **4. Headline Rewriting**
-- Generates 5 rewritten headline candidates  
-- Uses credible, neutral, and cautious templates  
-- Entity + action word pairing  
-- Ranking system (clarity, credibility, length, non-sensationalism)  
+```bash
+python -m venv venv
+# Windows PowerShell:
+venv\Scripts\Activate.ps1
+# or Windows CMD:
+venv\Scripts\activate.bat
 
-### **5. Final Output Generation**
-- Credibility label  
-- Bias label  
-- Fake-risk label  
-- Overall confidence score  
-- Warning flags  
-- Source references  
-- Quality tier (Poor → Excellent)
-
-### PROJECT STRUCTURE:
-``` 
- 
- fakeheadline-rewriter
-│
-├──  stage12345.py                     # Main pipeline code
-├──  README.md                     # Documentation
-├──  requirements.txt              # Dependencies
-│
-├──  sample_data/                  # Sample input dataset
-│   └── fake.csv.gz
-│
-└──  outputs/                      # Generated results
-    ├── complete_5stage_analysis.csv
-    └── complete_5stage_analysis_readable.csv
-```
-
-### INSTALLATION
-```
-pip install -r requirements.txt
-python -m ensurepip --upgrade
 python -m pip install --upgrade pip
-
-
-```
+python -m pip install -r requirements.txt
